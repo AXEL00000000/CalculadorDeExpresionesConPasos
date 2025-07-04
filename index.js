@@ -99,16 +99,24 @@ function convertirInfijaAPosfija(expresion) {
         if (caracter === ' ') {
             continue;
         } else if (caracter === '(') {
+            pila.push(caracter, nivelActual);
             nivelActual++;
         } else if (caracter === ')') {
             nivelActual--;
             if (nivelActual < 0) {
                 throw new Error("Paréntesis desbalanceados");
             }
+            while (!pila.estaVacia() && pila.verTope().valor !== '(') {
+                let op = pila.pop();
+                expresionPosFija.push({ tipo: 'operador', valor: op.valor, nivel: op.nivel });
+            }
+            if (!pila.estaVacia() && pila.verTope().valor === '(') {
+                pila.pop();
+            } else {
+                throw new Error("Paréntesis desbalanceados: '(' no encontrado");
+            }
         } else if (esOperador(caracter)) {
-            while (!pila.estaVacia() &&
-                pila.verTope().valor !== '(' &&
-                prioridad(pila.verTope().valor) >= prioridad(caracter)) {
+            while (!pila.estaVacia() && pila.verTope().valor !== '(' && prioridad(pila.verTope().valor) >= prioridad(caracter)) {
                 let op = pila.pop();
                 expresionPosFija.push({ tipo: 'operador', valor: op.valor, nivel: op.nivel });
             }
@@ -151,8 +159,8 @@ function aplicarOperacion(operador, a, b) {
 
 function evaluarPosfijaConPasos(tokens) {
     let pila = new PilaDeEnteros(tokens.length);
-    let pasos = [];
-    let indicePaso = 1;
+    let pasosDetallados = [];
+    let contadorPasos = 0;
 
     for (let token of tokens) {
         if (token.tipo === 'numero') {
@@ -164,13 +172,21 @@ function evaluarPosfijaConPasos(tokens) {
             let operando2 = pila.pop();
             let operando1 = pila.pop();
 
-            let operacionDesc = `${operando1} ${token.valor} ${operando2}`;
             let resultado = aplicarOperacion(token.valor, operando1, operando2);
+            let operacionDesc = `${operando1} ${token.valor} ${operando2}`;
+            let pasoTexto;
 
             if (token.nivel > 0) {
-                pasos.push(`Paso ${indicePaso++}: Se realizó la operación dentro del paréntesis (${operacionDesc})`);
+                pasoTexto = `Se realizó la operación dentro del paréntesis (${operacionDesc}) = ${resultado}`;
+            } else {
+                pasoTexto = `${obtenerNombreOperador(token.valor)}: ${operacionDesc} = ${resultado}`;
             }
-            pasos.push(`Paso ${indicePaso++}: ${obtenerNombreOperador(token.valor)}: ${operacionDesc} = ${resultado}`);
+
+            pasosDetallados.push({
+                nivel: token.nivel,
+                texto: pasoTexto,
+                orden: contadorPasos++
+            });
 
             pila.push(resultado);
         }
@@ -180,8 +196,20 @@ function evaluarPosfijaConPasos(tokens) {
         throw new Error("Expresión mal formada");
     }
 
+    pasosDetallados.sort((a, b) => {
+        if (a.nivel !== b.nivel) {
+            return b.nivel - a.nivel;
+        }
+        return a.orden - b.orden;
+    });
+
+    let pasos = [];
+    for (let i = 0; i < pasosDetallados.length; i++) {
+        pasos.push(`Paso ${i + 1}: ${pasosDetallados[i].texto}`);
+    }
+
     let resultadoFinal = pila.pop();
-    pasos.push(`Paso ${indicePaso}: Resultado final: ${resultadoFinal}`);
+    pasos.push(`Resultado final: ${resultadoFinal}`);
 
     return { resultado: resultadoFinal, pasos };
 }
