@@ -209,7 +209,7 @@ function evaluarPosfijaConPasos(tokens) {
     }
 
     let resultadoFinal = pila.pop();
-    pasos.push(`Resultado final: ${resultadoFinal}`);
+    pasos.push(`Paso ${pasosDetallados.length + 1}: Resultado final: ${resultadoFinal}`);
 
     return { resultado: resultadoFinal, pasos };
 }
