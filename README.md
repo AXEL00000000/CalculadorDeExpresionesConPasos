@@ -99,14 +99,5 @@ try {
 
 ## Video explicativo
 
-<!-- Miniatura enlazada al video para reproducción directa -->
+[Ver en YouTube](https://www.youtube.com/watch?v=EZ95ZWEAcHM)
 
-[![Video explicativo](https://img.youtube.com/vi/EZ95ZWEAcHM/0.jpg)](https://www.youtube.com/watch?v=EZ95ZWEAcHM)
-
-## Contribuir## Contribuir
-
-Las pull requests y los issues son bienvenidos. Por favor, revisa las normas de contribución en el archivo [CONTRIBUTING.md](./CONTRIBUTING.md).
-
-## Licencia
-
-Este proyecto está bajo la licencia MIT. Véase el archivo [LICENSE](./LICENSE) para más detalles.
