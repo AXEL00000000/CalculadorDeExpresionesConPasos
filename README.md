@@ -37,7 +37,7 @@ npm install expression-calculator
 Copia el archivo `expression-calculator.js` en tu proyecto y enlázalo:
 
 ```html
-<script src="path/to/expression-calculator.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/AXEL00000000/CalculadorDeExpresionesConPasos/ExpressionCalculator.js"></script>
 ```
 
 ## Uso / API
