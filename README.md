@@ -99,12 +99,14 @@ try {
 
 ## Video explicativo
 
-[Ver en YouTube](https://www.youtube.com/watch?v=EZ95ZWEAcHM)
+<!-- Miniatura enlazada al video para reproducción directa -->
 
+[![Video explicativo](https://img.youtube.com/vi/EZ95ZWEAcHM/0.jpg)](https://www.youtube.com/watch?v=EZ95ZWEAcHM)
 
-## Limitaciones actuales
-- Solo soporta operadores básicos (no funciones trigonométricas)
-- Maneja solo números (no variables)
-- No soporta notación científica
-- Solo recibe enteros
+## Contribuir## Contribuir
 
+Las pull requests y los issues son bienvenidos. Por favor, revisa las normas de contribución en el archivo [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+## Licencia
+
+Este proyecto está bajo la licencia MIT. Véase el archivo [LICENSE](./LICENSE) para más detalles.
