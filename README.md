@@ -1,9 +1,6 @@
-# CalculadorDeExpresionesConPasos
-Librería de funciones java script para el calculo de expresiones infijas y los pasos para su resolución.
-
 # ExpressionCalculator - Librería JavaScript
 
-**ExpressionCalculator** es una librería JavaScript que permite evaluar expresiones matemáticas complejas y mostrar **paso a paso** cómo se resuelven.
+**ExpressionCalculator** es una librería JavaScript que permite evaluar expresiones matemáticas infijas  y mostrar **paso a paso** cómo se resuelven.
 
 ## Características principales
 Resuelve expresiones con operadores: `+`, `-`, `*`, `/`, `^` (potencia)  
