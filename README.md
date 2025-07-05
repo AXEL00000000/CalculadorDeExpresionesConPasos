@@ -101,17 +101,10 @@ try {
 
 [Ver en YouTube](https://www.youtube.com/watch?v=EZ95ZWEAcHM)
 
-## Contribuir
-
-Las pull requests y los issues son bienvenidos. Por favor, revisa las normas de contribución en el archivo [CONTRIBUTING.md](./CONTRIBUTING.md).
-
-## Licencia
-
-Este proyecto está bajo la licencia MIT. Véase el archivo [LICENSE](./LICENSE) para más detalles.
-
 
 ## Limitaciones actuales
 - Solo soporta operadores básicos (no funciones trigonométricas)
 - Maneja solo números (no variables)
 - No soporta notación científica
+- Solo recibe enteros
 
