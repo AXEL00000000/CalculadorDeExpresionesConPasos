@@ -1,6 +1,6 @@
 # ExpressionCalculator
 
-[![npm version](https://img.shields.io/npm/v/expression-calculator.svg)](https://www.npmjs.com/package/expression-calculator)  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![npm version](https://img.shields.io/npm/v/expression-calculator.svg)](https://www.npmjs.com/package/expression-calculator)  
 
 **ExpressionCalculator** es una librería JavaScript que permite evaluar expresiones matemáticas infijas y mostrar **paso a paso** cómo se resuelven.
 
@@ -34,7 +34,7 @@ npm install expression-calculator
 
 ### Manual
 
-Copia el archivo `expression-calculator.js` en tu proyecto y enlázalo:
+Copia el archivo `ExpressionCalculator.js` en tu proyecto y enlázalo:
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/AXEL00000000/CalculadorDeExpresionesConPasos/ExpressionCalculator.js"></script>
